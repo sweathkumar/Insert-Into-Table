@@ -43,8 +43,10 @@
                         </div>
                     </div>
                     <div class="row py-2">
-                        <div class="col-2">
-                            <asp:Button CssClass="btn btn-primary btn-lg fs-5 fw-normal m-0" OnClick="btnSubmit_Click" Text="Submit" id="btnSubmit" runat="server"/>
+                        <div class="col-2 d-flex">
+                            <asp:Button Class="btn btn-primary btn-md fs-5 fw-normal me-1 " OnClick="btnSubmit_Click" Text="Submit" id="btnSubmit" runat="server"/>
+                            <button Class="btn btn-danger btn-md fs-5 fw-normal mx-1" Type="reset" Value="Reset" ID="btnReset" runat="server">Reset</button>
+                            <button class="btn btn-outline-primary btn-md fs-5 fw-normal mx-1"  ID="btnView" runat="server">View</button>
                         </div>
                     </div>
                 </div>
