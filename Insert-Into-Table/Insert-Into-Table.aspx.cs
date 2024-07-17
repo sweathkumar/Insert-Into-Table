@@ -37,5 +37,11 @@ namespace Insert_Into_Table
             grid1.DataSource = dt;
             grid1.DataBind();
         }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            txtuserId.Text = "";
+            txtuserName.Text = "";
+        }
     }
 }

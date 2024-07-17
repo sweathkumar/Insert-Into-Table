@@ -22,17 +22,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script type="text/javascript">
-       alert('vggvfgj');
+      
+       function onSubmit(){
+        debugger;
+        var uid = document.getElementById("<%=txtuserId.ClientID%>");
+        var uname = document.getElementById("<%=txtuserName.ClientID%>");
 
-        function onSubmit() {
-         var uid = document.getElementById("<%=txtuserId.ClientID%>");
-        var uname = document.getElementById("<%=txtuserName.Text%>");
-            debugger;
-            if (uid.valu == "") {
-                alert("User Id feild should not be empty1")
-                return false;
-            }
+        if (uid.Value == ""){
+            alert('UserID field should not be empty!');
+            return false;
+        } 
+        else if(uname.Value == "")
+        {
+            alert('User Name field should not be empty!');
+            return false;
         }
+
+        return true;
+       }
+
+    //    function onReset(){
+    //     document.getElementById(uid).innerHTML="";
+        
+    //    }
     </script>
 </head>
 <body>
@@ -72,8 +84,9 @@
                         </div>
                         <div class="row py-2">
                             <div class="col d-flex justify-content-start">
-                                <asp:Button Class="btn btn-primary btn-sm fs-5 fw-normal me-1 " OnClick="btnSubmit_Click" OnClientClick="javascript:return onSubmit();" Text="Submit" ID="btnSubmit" runat="server" />
-                                <button class="btn btn-danger btn-sm fs-5 fw-normal mx-1" type="reset" value="Reset" id="btnReset" runat="server">Reset</button>
+                                <asp:Button Class="btn btn-primary btn-sm fs-5 fw-normal me-1 " OnClick="btnSubmit_Click" OnClientClick="javascript: return onSubmit();" Text="Submit" ID="btnSubmit" runat="server" />
+                                <%--<button class="btn btn-danger btn-sm fs-5 fw-normal mx-1" type="reset" value="Reset" id="btnReset" runat="server">Reset</button>--%>
+                                <asp:Button class="btn btn-danger btn-sm fs-5 fw-normal mx-1" Type="reset" Value="Reset" Id="btnReset" runat="server" Text="Reset" OnClick="btnReset_Click"/>
                                 <asp:Button Class="btn btn-outline-primary btn-sm fs-5 fw-normal me-1 " OnClick="btnView_Click" Text="View" ID="btnView" runat="server" />
                             </div>
                         </div>
