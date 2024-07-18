@@ -40,10 +40,14 @@
         return true;
        }
 
-    //    function onReset(){
-    //     document.getElementById(uid).innerHTML="";
-        
-    //    }
+       function onClear(){
+             debugger;
+    return confirm("Are you sure you want to delete entire data from the table?");
+          
+       }
+       function deleteRow() {
+        return confirm("Are you sure you want to delete this Row?");
+       }
     </script>
 </head>
 <body>
@@ -81,40 +85,51 @@
                                 <asp:TextBox type="text" CssClass="fs-lg-6 fs-small fw-normal" ID="txtuserName" runat="server" placeholder="Enter Your User Name"></asp:TextBox>
                             </div>
                         </div>
-                        <div class="row py-2">
+                        <div class="row py-2 ">
                             <div class="col d-flex justify-content-start">
                                 <asp:Button Class="btn btn-primary btn-sm fs-5 fw-normal me-1 " OnClick="btnSubmit_Click" OnClientClick="javascript: return onSubmit();" Text="Submit" ID="btnSubmit" runat="server" />
-                                <asp:Button class="btn btn-danger btn-sm fs-5 fw-normal mx-1" ID="btnReset1" runat="server" Text="Reset" OnClick="btnReset_Click"/>
+                                <asp:Button class="btn btn-danger btn-sm fs-5 fw-normal mx-1" ID="btnReset1" runat="server" Text="Reset" OnClick="btnReset_Click" />
                                 <asp:Button Class="btn btn-outline-primary btn-sm fs-5 fw-normal me-1 " OnClick="btnView_Click" Text="View" ID="btnView" runat="server" />
                             </div>
                         </div>
                     </div>
                     <div class="col-6">
-                        <asp:GridView ID="grid1" ShowFooter="false" runat="server" AutoGenerateColumns="false" datakeyname="Fid" CellPadding="4" GridLines="Horizontal" PageSize="10" BackColor="White" BorderColor="#000000" BorderStyle="Solid" BorderWidth="1px" AllowPaging="True">
-                            <Columns>
-                                <asp:TemplateField HeaderText="S.no">
-                                    <ItemTemplate>
-                                        <%#Container.DataItemIndex + 1 %>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="User ID" SortExpression="userid">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%# Bind("userid") %>' ID="lbluserid" runat="server"></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="User Name" SortExpression="userid">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%# Bind("name") %>' ID="lblname" runat="server"></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Date" SortExpression="userid">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%# Bind("date") %>' ID="lbldate" runat="server"></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                            <asp:
-                        </asp:GridView>
+                        <div class="row">
+                            <asp:GridView ID="grid1" ShowFooter="false" runat="server" AutoGenerateColumns="false" datakeyname="Fid" CellPadding="4" GridLines="Horizontal" PageSize="10" BackColor="White" BorderColor="#000000" BorderStyle="Solid" BorderWidth="1px" AllowPaging="True">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="S.no">
+                                        <ItemTemplate>
+                                            <%#Container.DataItemIndex + 1 %>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="User ID" SortExpression="userid">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%# Bind("userid") %>' ID="lbluserid" runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="User Name" SortExpression="userid">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%# Bind("name") %>' ID="lblname" runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Date" SortExpression="userid">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%# Bind("date") %>' ID="lbldate" runat="server"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField>
+                                        <ItemTemplate>
+                                            <asp:Button class="btn btn-danger btn-sm fs-5 fw-normal mx-1" ID="btnDelete" runat="server" Text="Delete" onClick="btnDelete_Click" OnClientClick="return deleteRow()" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                        </div>
+                        <div class="row justify-content-end d-block">
+                            <div class="col-2">
+                                <asp:Button Class="btn btn-outline-danger btn-sm fs-5 fw-normal my-2 p-2 " Visible="false" OnClick="btnClear_Click" OnClientClick="javascript: return onClear();" Text="Clear Table" ID="btnClear" runat="server" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
