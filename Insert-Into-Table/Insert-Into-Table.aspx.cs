@@ -24,7 +24,7 @@ namespace Insert_Into_Table
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string sql = "insert into DataEntry(userid,name,date) values('" + txtuserId.Text + "','" + txtuserName.Text + "','" + date + "')";
+            string sql = "insert into DataEntry(userid,name,date) values('" + txtuserId.Text + "','" + txtuserName.Text + "',getdate())";
             int ds = SqlHelper.ExecuteNonQuery(con, CommandType.Text, sql);
         }
 
