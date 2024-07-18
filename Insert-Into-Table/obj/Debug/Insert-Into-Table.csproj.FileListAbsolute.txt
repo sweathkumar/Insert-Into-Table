@@ -194,6 +194,6 @@ C:\Users\USer\Desktop\Sweathkumar\Projects\18 july\Insert-Into-Table\Insert-Into
 C:\Users\USer\Desktop\Sweathkumar\Projects\18 july\Insert-Into-Table\Insert-Into-Table\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\USer\Desktop\Sweathkumar\Projects\18 july\Insert-Into-Table\Insert-Into-Table\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\USer\Desktop\Sweathkumar\Projects\18 july\Insert-Into-Table\Insert-Into-Table\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\USer\Desktop\Sweathkumar\Projects\18 july\Insert-Into-Table\Insert-Into-Table\obj\Debug\Insert-Into-Table.csprojResolveAssemblyReference.cache
 C:\Users\USer\Desktop\Sweathkumar\Projects\18 july\Insert-Into-Table\Insert-Into-Table\obj\Debug\Insert-Into-Table.dll
 C:\Users\USer\Desktop\Sweathkumar\Projects\18 july\Insert-Into-Table\Insert-Into-Table\obj\Debug\Insert-Into-Table.pdb
+C:\Users\USer\Desktop\Sweathkumar\Projects\18 july\Insert-Into-Table\Insert-Into-Table\obj\Debug\Insert-Into-Table.csprojResolveAssemblyReference.cache

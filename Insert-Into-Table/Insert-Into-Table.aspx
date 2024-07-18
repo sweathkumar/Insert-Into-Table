@@ -27,6 +27,10 @@
         debugger;
         var uid = document.getElementById("<%=txtuserId.ClientID%>");
         var uname = document.getElementById("<%=txtuserName.ClientID%>");
+        if(isNaN(uid.value)){
+            alert('User id Feild must be in Number Format!');
+            return false;
+        }
         if (uid.value == ""){
             alert('UserID field should not be empty!');
             return false;
@@ -95,7 +99,7 @@
                     </div>
                     <div class="col-6">
                         <div class="row">
-                            <asp:GridView ID="grid1" ShowFooter="false" runat="server" AutoGenerateColumns="false" OnRowDataBound="grid1_RowDataBound" OnRowDeleting="grid1_RowDeleting" datakeyname="Fid" CellPadding="4" GridLines="Horizontal" PageSize="10" BackColor="White" BorderColor="#000000" BorderStyle="Solid" BorderWidth="1px" AllowPaging="True">
+                            <asp:GridView ID="grid1" ShowFooter="false" runat="server" AutoGenerateColumns="false" OnRowEditing="grid1_RowEditing" OnRowUpdating="grid1_RowUpdating" OnRowCancelingEdit="grid1_RowCancelingEdit" OnRowDeleting="grid1_RowDeleting" datakeyname="Fid" CellPadding="4" GridLines="Horizontal" PageSize="10" BackColor="White" BorderColor="#000000" BorderStyle="Solid" BorderWidth="1px" AllowPaging="True">
                                 <Columns>
                                     <asp:TemplateField HeaderText="S.no">
                                         <ItemTemplate>
@@ -103,31 +107,34 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="User ID" SortExpression="userid">
+                                        <EditItemTemplate>
+                                            <asp:TextBox ID="txtuserid" runat="server" Text='<%# Bind("userid") %>'></asp:TextBox>
+                                        </EditItemTemplate>
                                         <ItemTemplate>
-                                            <asp:Label Text='<%# Bind("userid") %>' ID="lbluserid" runat="server"></asp:Label>
+                                            <asp:Label CssClass="text-center" Text='<%# Bind("userid") %>' ID="lbluserid" runat="server"></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="User Name" SortExpression="userid">
+                                        <EditItemTemplate>
+                                            <asp:TextBox ID="txtname" runat="server" Text='<%# Bind("name") %>'></asp:TextBox>
+                                        </EditItemTemplate>
                                         <ItemTemplate>
-                                            <asp:Label Text='<%# Bind("name") %>' ID="lblname" runat="server"></asp:Label>
+                                            <asp:Label CssClass="text-center" Text='<%# Bind("name") %>' ID="lblname" runat="server"></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Date" SortExpression="userid">
                                         <ItemTemplate>
-                                            <asp:Label Text='<%# Bind("date") %>' ID="lbldate" runat="server"></asp:Label>
+                                            <asp:Label CssClass="text-center" Text='<%# Bind("date") %>' ID="lbldate" runat="server"></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField>
-                                        <ItemTemplate>
-                                            <asp:Button class="btn btn-danger btn-sm fs-5 fw-normal mx-1" ID="btnDelete" runat="server" Text="Delete" onClick="btnDelete_Click" OnClientClick="return deleteRow()" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                                    <asp:CommandField ShowEditButton="true" HeaderText="Edit" ControlStyle-CssClass="btn btn-warning btn-sm" />
+                                    <asp:CommandField ShowDeleteButton="True" HeaderText="Delete"  ControlStyle-CssClass="btn btn-danger btn-sm" /> 
                                 </Columns>
                             </asp:GridView>
                         </div>
                         <div class="row justify-content-end d-block">
                             <div class="col-2">
-                                <asp:Button Class="btn btn-outline-danger btn-sm fs-5 fw-normal my-2 p-2 " CommandName="DeleteRow" CommandArgument='<%# Bind("userid")%>' Visible="false" OnClick="btnClear_Click" OnClientClick="javascript: return onClear();" Text="Clear Table" ID="btnClear" runat="server" />
+                                <asp:Button Class="btn btn-outline-danger btn-sm fs-5 fw-normal my-2 p-2 " Visible="false" OnClick="btnClear_Click" OnClientClick="javascript: return onClear();" Text="Clear Table" ID="btnClear" runat="server" />
                             </div>
                         </div>
                     </div>
