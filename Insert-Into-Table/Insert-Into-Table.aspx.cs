@@ -60,7 +60,23 @@ namespace Insert_Into_Table
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+
+            string sql = "Delete from dataenrty where userid = ";
+
             ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Table DataEntry cleared successfully.');", true);
+        }
+
+        protected void grid1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                                
+            }
+        }
+
+        protected void grid1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
         }
     }
 }

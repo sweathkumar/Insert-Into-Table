@@ -41,8 +41,8 @@
        }
 
        function onClear(){
-             debugger;
-    return confirm("Are you sure you want to delete entire data from the table?");
+        debugger;
+        return confirm("Are you sure you want to delete entire data from the table?");
           
        }
        function deleteRow() {
@@ -95,7 +95,7 @@
                     </div>
                     <div class="col-6">
                         <div class="row">
-                            <asp:GridView ID="grid1" ShowFooter="false" runat="server" AutoGenerateColumns="false" datakeyname="Fid" CellPadding="4" GridLines="Horizontal" PageSize="10" BackColor="White" BorderColor="#000000" BorderStyle="Solid" BorderWidth="1px" AllowPaging="True">
+                            <asp:GridView ID="grid1" ShowFooter="false" runat="server" AutoGenerateColumns="false" OnRowDataBound="grid1_RowDataBound" OnRowDeleting="grid1_RowDeleting" datakeyname="Fid" CellPadding="4" GridLines="Horizontal" PageSize="10" BackColor="White" BorderColor="#000000" BorderStyle="Solid" BorderWidth="1px" AllowPaging="True">
                                 <Columns>
                                     <asp:TemplateField HeaderText="S.no">
                                         <ItemTemplate>
@@ -127,7 +127,7 @@
                         </div>
                         <div class="row justify-content-end d-block">
                             <div class="col-2">
-                                <asp:Button Class="btn btn-outline-danger btn-sm fs-5 fw-normal my-2 p-2 " Visible="false" OnClick="btnClear_Click" OnClientClick="javascript: return onClear();" Text="Clear Table" ID="btnClear" runat="server" />
+                                <asp:Button Class="btn btn-outline-danger btn-sm fs-5 fw-normal my-2 p-2 " CommandName="DeleteRow" CommandArgument='<%# Bind("userid")%>' Visible="false" OnClick="btnClear_Click" OnClientClick="javascript: return onClear();" Text="Clear Table" ID="btnClear" runat="server" />
                             </div>
                         </div>
                     </div>
