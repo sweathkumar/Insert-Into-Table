@@ -46,6 +46,7 @@
 
        function onClear(){
         debugger;
+                            
         return confirm("Are you sure you want to delete entire data from the table?");
           
        }
@@ -70,8 +71,9 @@
         </section>
         <section class="main py-5">
             <div class="container">
-                <div class="row py-5">
-                    <div class="col border border-1 border-dark py-4">
+                <div class="row d-flex py-5">
+                    <div class="col">
+                        <div class=" border border-1 border-dark p-3 my-4">
                         <div class="row py-3">
                             <div class="col-2">
                                 <a id="test" runat="server"></a>
@@ -96,10 +98,11 @@
                                 <asp:Button Class="btn btn-outline-primary btn-sm fs-5 fw-normal me-1 " OnClick="btnView_Click" Text="View" ID="btnView" runat="server" />
                             </div>
                         </div>
+                        </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col">
                         <div class="row">
-                            <asp:GridView ID="grid1" ShowFooter="false" runat="server" AutoGenerateColumns="false" OnRowEditing="grid1_RowEditing" OnRowUpdating="grid1_RowUpdating" OnRowCancelingEdit="grid1_RowCancelingEdit" OnRowDeleting="grid1_RowDeleting" datakeyname="Fid" CellPadding="4" GridLines="Horizontal" PageSize="10" BackColor="White" BorderColor="#000000" BorderStyle="Solid" BorderWidth="1px" AllowPaging="True">
+                            <asp:GridView class="table table-dark table-striped" ID="grid1" ShowFooter="false" runat="server" AutoGenerateColumns="false" OnRowEditing="grid1_RowEditing" OnRowUpdating="grid1_RowUpdating" OnRowCancelingEdit="grid1_RowCancelingEdit" OnRowDeleting="grid1_RowDeleting" datakeyname="Fid" CellPadding="4" GridLines="Horizontal" PageSize="10" BackColor="White" BorderColor="#000000" BorderStyle="Solid" BorderWidth="1px" AllowPaging="True">
                                 <Columns>
                                     <asp:TemplateField HeaderText="S.no">
                                         <ItemTemplate>
@@ -107,9 +110,9 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="User ID" SortExpression="userid">
-                                        <EditItemTemplate>
+                                        <%--<EditItemTemplate>
                                             <asp:TextBox ID="txtuserid" runat="server" Text='<%# Bind("userid") %>'></asp:TextBox>
-                                        </EditItemTemplate>
+                                        </EditItemTemplate>--%>
                                         <ItemTemplate>
                                             <asp:Label CssClass="text-center" Text='<%# Bind("userid") %>' ID="lbluserid" runat="server"></asp:Label>
                                         </ItemTemplate>
