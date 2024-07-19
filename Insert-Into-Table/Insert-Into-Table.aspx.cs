@@ -79,7 +79,6 @@ namespace Insert_Into_Table
             string sql = "Delete from dataentry where userid = '" + userid + "'";
             SqlHelper.ExecuteNonQuery(con, CommandType.Text, sql);
             ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Table row deleted successfully.');", true);
-            getData();
         }
 
         protected void grid1_RowEditing(object sender, GridViewEditEventArgs e)
